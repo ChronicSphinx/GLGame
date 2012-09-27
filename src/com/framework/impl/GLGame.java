@@ -67,9 +67,12 @@ public abstract class GLGame extends Activity implements Game, Renderer {
     public void onSurfaceCreated(GL10 gl, EGLConfig config) {        
         glGraphics.setGL(gl);
         
-        synchronized(stateChanged) {
+        synchronized(stateChanged) 
+        {
             if(state == GLGameState.Initialized)
+            {
                 screen = getStartScreen();
+            }
             state = GLGameState.Running;
             screen.resume();
             startTime = System.nanoTime();
@@ -79,7 +82,8 @@ public abstract class GLGame extends Activity implements Game, Renderer {
     public void onSurfaceChanged(GL10 gl, int width, int height) {        
     }
 
-    public void onDrawFrame(GL10 gl) {                
+    public void onDrawFrame(GL10 gl) 
+    {                
         GLGameState state = null;
         
         synchronized(stateChanged) {
