@@ -33,7 +33,9 @@ public class FirstTriangleTextureTest extends GLGame
 		public FirstTriangleScreen(Game game) 
 		{
 			super(game);
-			glGraphics = ((GLGame)game).getGLGraphics();			
+			glGraphics = ((GLGame)game).getGLGraphics();
+			short[] indices = {0,1,2,
+							   2,3,0};
 			ByteBuffer byteBuffer = ByteBuffer.allocateDirect(3 * VERTEX_SIZE);
 			byteBuffer.order(ByteOrder.nativeOrder());
 			vertices = byteBuffer.asFloatBuffer();
